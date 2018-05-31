@@ -20,6 +20,8 @@ package de.dik.WerkzeugkastenFX;
  * #L%
  */
 import com.airhacks.afterburner.injection.Injector;
+import de.dik.WerkzeugkastenFX.gui.start.StartView;
+import de.dik.WerkzeugkastenFX.gui.tabPanes.TabPanesView;
 import de.dik.WerkzeugkastenFX.gui.userWindow.UserWindowView;
 import java.time.LocalDate;
 import java.time.Month;
@@ -52,6 +54,9 @@ public class App extends Application {
         System.setProperty("happyEnding", " Enjoy the flight!");
 //        DashboardView appView = new DashboardView();
         UserWindowView appView = new UserWindowView();
+//        TabPanesView appView = new TabPanesView();
+//        StartView appView = new StartView();
+//        MenueView appView = new MenueView();
         Scene scene = new Scene(appView.getView());
         stage.setTitle("followme.fx");
         final String uri = getClass().getResource("app.css").toExternalForm();
