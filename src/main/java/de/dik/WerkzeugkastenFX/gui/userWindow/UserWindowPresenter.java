@@ -25,7 +25,7 @@ public class UserWindowPresenter implements Initializable {
         System.out.println("userwindow");
 
         TabPanesView tabPanes = new TabPanesView();
-        tabPanes.getViewAsync(userWindowAP.getChildren()::add);     
+        tabPanes.getView(userWindowAP.getChildren()::add);     
 
 //        StartView startView = new StartView();
 //        startView.getView(userWindowAP.getChildren()::add);

@@ -6,32 +6,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="tabPaneAP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
-            prefHeight="400.0" prefWidth="600.0" stylesheets="@tabpanes.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@tabpanes.css" 
+            xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" 
             fx:controller="de.dik.WerkzeugkastenFX.gui.tabPanes.TabPanesPresenter">
     <children>
-        <JFXTabPane fx:id="tabPane" side="LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <JFXTabPane fx:id="tabPane" 
+                    maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" 
+                    side="LEFT" 
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
                 <Tab text="Start">
                     <content>
-                        <AnchorPane fx:id="startTabPaneAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="268.0" layoutY="192.0" text="Label" />
-                     </children></AnchorPane>
+                        <AnchorPane fx:id="startTabPaneAP">
+                            <children>
+                                <Label layoutX="268.0" layoutY="192.0" text="Label" />
+                            </children>
+                        </AnchorPane>
                     </content>
                 </Tab>
                 <Tab text="Produkte">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane fx:id="produkteTabPaneAP" />
                     </content>
                 </Tab>
                 <Tab text="Produktion">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane/>
                     </content>
                 </Tab>
                 <Tab text="Optionen">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane />
                     </content>
                 </Tab>
             </tabs>
