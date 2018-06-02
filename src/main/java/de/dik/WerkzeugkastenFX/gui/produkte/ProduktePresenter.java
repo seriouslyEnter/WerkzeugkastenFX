@@ -18,10 +18,8 @@ import javafx.scene.layout.AnchorPane;
  */
 public class ProduktePresenter implements Initializable {
     
-    @FXML AnchorPane produkteAP;
     @FXML ScrollPane produkteSP;
-    
-
+   
     private ResourceBundle resources = null;
     
     @Override
@@ -29,9 +27,8 @@ public class ProduktePresenter implements Initializable {
         this.resources = resources;
         AnchorPane.setTopAnchor(produkteSP, 0.0);
         AnchorPane.setLeftAnchor(produkteSP, 0.0);
-        
-//        AnchorPane.setRightAnchor(produkteAP, 0.0);
-//        AnchorPane.setBottomAnchor(produkteAP, 0.0);
+        AnchorPane.setRightAnchor(produkteSP, 0.0);
+        AnchorPane.setBottomAnchor(produkteSP, 0.0);
     }
     
 }

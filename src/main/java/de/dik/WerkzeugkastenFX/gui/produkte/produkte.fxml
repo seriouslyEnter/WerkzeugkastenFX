@@ -16,10 +16,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<ScrollPane fx:id="produkteSP" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dik.WerkzeugkastenFX.gui.produkte.ProduktePresenter">
+<ScrollPane fx:id="produkteSP" fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dik.WerkzeugkastenFX.gui.produkte.ProduktePresenter">
    <content>
-      <AnchorPane id="AnchorPane" fx:id="produkteAP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
+      <AnchorPane id="AnchorPane" fx:id="produkteAP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFFFF;">
           <children>
               <GridPane>
                   <columnConstraints>

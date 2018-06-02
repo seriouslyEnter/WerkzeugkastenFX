@@ -53,7 +53,8 @@ and open the template in the editor.
 }
 
 .jfx-tab-pane .tab-header-area .tab-down-button {
-    -fx-background-color: WHITE;
+    /*-fx-background-color: WHITE;*/
+    -fx-background-color: rgb(0,60,90);
     -fx-min-width: 0.8em;
     -fx-max-width: 0.8em;
     -fx-min-height: 1.3em;

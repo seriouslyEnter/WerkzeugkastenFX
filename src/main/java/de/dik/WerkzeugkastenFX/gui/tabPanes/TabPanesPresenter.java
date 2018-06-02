@@ -1,11 +1,13 @@
 package de.dik.WerkzeugkastenFX.gui.tabPanes;
 
+import com.jfoenix.controls.JFXTabPane;
 import de.dik.WerkzeugkastenFX.gui.produkte.ProdukteView;
 import de.dik.WerkzeugkastenFX.gui.start.StartView;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -15,7 +17,7 @@ public class TabPanesPresenter implements Initializable {
 
     @FXML AnchorPane startTabPaneAP;
     @FXML AnchorPane produkteTabPaneAP;
-    @FXML AnchorPane tabPaneAP;
+    @FXML JFXTabPane tabPane;
 
     private ResourceBundle resources = null;
 
@@ -26,10 +28,10 @@ public class TabPanesPresenter implements Initializable {
         System.out.println("tabpanes");
         
         //Notwendig weil das für Injected fxml das nicht nicht SceneBuilder gesetzt werden kann
-        AnchorPane.setRightAnchor(tabPaneAP, 0.0);
-        AnchorPane.setLeftAnchor(tabPaneAP, 0.0);
-        AnchorPane.setTopAnchor(tabPaneAP, 0.0);
-        AnchorPane.setBottomAnchor(tabPaneAP, 0.0);
+        AnchorPane.setRightAnchor(tabPane, 0.0);
+        AnchorPane.setLeftAnchor(tabPane, 0.0);
+        AnchorPane.setTopAnchor(tabPane, 0.0);
+        AnchorPane.setBottomAnchor(tabPane, 0.0);
         
         
 
