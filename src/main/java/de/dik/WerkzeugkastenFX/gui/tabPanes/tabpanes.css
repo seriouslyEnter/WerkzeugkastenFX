@@ -62,7 +62,7 @@ and open the template in the editor.
 }
 
 .jfx-tab-pane .tab-header-area .control-buttons-tab .jfx-rippler {
-    -jfx-rippler-fill: WHITE;
+    -jfx-rippler-fill: rgb(175,190,50);
 }
 
 .jfx-tab-pane .tab-header-area .tab-down-button:left {
