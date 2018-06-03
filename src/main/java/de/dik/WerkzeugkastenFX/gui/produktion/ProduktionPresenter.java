@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.dik.WerkzeugkastenFX.gui.produkte;
-
+package de.dik.WerkzeugkastenFX.gui.produktion;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,26 +18,29 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author gu35nxt
  */
-public class ProduktePresenter implements Initializable {
+public class ProduktionPresenter implements Initializable {
 
-    @FXML ScrollPane produkteSP;
-    @FXML Button bt11;
-
+    @FXML
+    ScrollPane produktionSP;
+    @FXML
+    Button bt11;
 
     private ResourceBundle resources = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.resources = resources;
-        AnchorPane.setTopAnchor(produkteSP, 0.0);
-        AnchorPane.setLeftAnchor(produkteSP, 0.0);
-        AnchorPane.setRightAnchor(produkteSP, 0.0);
-        AnchorPane.setBottomAnchor(produkteSP, 0.0);
+
+        AnchorPane.setTopAnchor(produktionSP, 0.0);
+        AnchorPane.setLeftAnchor(produktionSP, 0.0);
+        AnchorPane.setRightAnchor(produktionSP, 0.0);
+        AnchorPane.setBottomAnchor(produktionSP, 0.0);
+
     }
 
     @FXML
     public void bt11Click(ActionEvent event) {
-        System.out.println("de.dik.WerkzeugkastenFX.gui.produkte.ProduktePresenter.bt11Click()");
+        System.out.println("de.dik.WerkzeugkastenFX.gui.produktion.ProduktionPresenter.bt11Click()");
     }
 
 }

@@ -28,7 +28,7 @@
           </Tab>
           <Tab text="Produktion">
               <content>
-                  <AnchorPane />
+                  <AnchorPane fx:id="produktionTabPaneAP" />
               </content>
           </Tab>
           <Tab text="Optionen">

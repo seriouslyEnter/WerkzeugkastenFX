@@ -5,20 +5,18 @@ and open the template in the editor.
 */
 
 /* 
- * This file can be manually injected into your file produkte.fxml via:
+ * This file can be manually injected into your file produktion.fxml via:
  * 
- * <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dik.WerkzeugkastenFX.gui.produkte.ProduktePresenter">
+ * <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dik.WerkzeugkastenFX.gui.produktion.ProduktionPresenter">
  *     <stylesheets>
- *         <URL value="@produkte.css"/>
+ *         <URL value="@produktion.css"/>
  *     </stylesheets>
  * </AnchorPane>
  * 
  * The above shown soucecode will be automatically generated if you have the
  * options to create (and to inject) the 'optional' .css file into your 
- * file produkte.fxml selected in the page 'Optional Files'.
+ * file produktion.fxml selected in the page 'Optional Files'.
  * 
- * Created on : 01.06.2018, 19:26:13
+ * Created on : 03.06.2018, 19:50:39
  * Author     : gu35nxt
  */
-
-
