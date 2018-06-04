@@ -98,6 +98,12 @@ public class ProduktePresenter implements Initializable {
         AnchorPane.setLeftAnchor(produkteSP, 0.0);
         AnchorPane.setRightAnchor(produkteSP, 0.0);
         AnchorPane.setBottomAnchor(produkteSP, 0.0);
+        
+        
+        
+        
+        
+        
     }
 
     @FXML
