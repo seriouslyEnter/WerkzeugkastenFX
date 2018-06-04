@@ -1,0 +1,9 @@
+
+
+.jfx-button .jfx-rippler {
+    /*-jfx-rippler-fill: red;*/
+    -jfx-rippler-fill: rgb(175,190,50);
+    /*-jfx-rippler-fill: rgb(0,110,110);*/
+    /*-jfx-rippler-fill: rgb(0,60,90);*/
+}
+

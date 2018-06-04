@@ -5,41 +5,36 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="tabPaneAP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
+<JFXTabPane fx:id="tabPane" 
+            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="378.0" 
+            side="LEFT" 
             stylesheets="@tabpanes.css" 
             xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" 
             fx:controller="de.dik.WerkzeugkastenFX.gui.tabPanes.TabPanesPresenter">
-    <children>
-        <JFXTabPane fx:id="tabPane" 
-                    maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" 
-                    side="LEFT" 
-                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <tabs>
-                <Tab text="Start">
-                    <content>
-                        <AnchorPane fx:id="startTabPaneAP">
-                            <children>
-                                <Label layoutX="268.0" layoutY="192.0" text="Label" />
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Produkte">
-                    <content>
-                        <AnchorPane fx:id="produkteTabPaneAP" />
-                    </content>
-                </Tab>
-                <Tab text="Produktion">
-                    <content>
-                        <AnchorPane/>
-                    </content>
-                </Tab>
-                <Tab text="Optionen">
-                    <content>
-                        <AnchorPane />
-                    </content>
-                </Tab>
-            </tabs>
-        </JFXTabPane>
-    </children>
-</AnchorPane>
+      <tabs>
+          <Tab text="Start">
+              <content>
+                  <AnchorPane fx:id="startTabPaneAP">
+                      <children>
+                          <Label layoutX="268.0" layoutY="192.0" text="Label" />
+                      </children>
+                  </AnchorPane>
+              </content>
+          </Tab>
+          <Tab text="Produkte">
+              <content>
+                  <AnchorPane fx:id="produkteTabPaneAP" />
+              </content>
+          </Tab>
+          <Tab text="Produktion">
+              <content>
+                  <AnchorPane fx:id="produktionTabPaneAP" />
+              </content>
+          </Tab>
+          <Tab text="Optionen">
+              <content>
+                  <AnchorPane />
+              </content>
+          </Tab>
+      </tabs>
+  </JFXTabPane>

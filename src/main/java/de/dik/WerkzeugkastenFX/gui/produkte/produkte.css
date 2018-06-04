@@ -20,3 +20,12 @@ and open the template in the editor.
  * Created on : 01.06.2018, 19:26:13
  * Author     : gu35nxt
  */
+
+
+
+.jfx-button .jfx-rippler {
+    /*-jfx-rippler-fill: red;*/
+    -jfx-rippler-fill: rgb(175,190,50);
+    /*-jfx-rippler-fill: rgb(0,110,110);*/
+    /*-jfx-rippler-fill: rgb(0,60,90);*/
+}
