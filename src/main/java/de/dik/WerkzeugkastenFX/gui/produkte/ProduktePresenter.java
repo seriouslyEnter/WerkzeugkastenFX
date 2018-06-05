@@ -97,26 +97,17 @@ public class ProduktePresenter implements Initializable {
         AnchorPane.setTopAnchor(produkteSP, 0.0);
         AnchorPane.setLeftAnchor(produkteSP, 0.0);
         AnchorPane.setRightAnchor(produkteSP, 0.0);
-        AnchorPane.setBottomAnchor(produkteSP, 0.0);
-        
-        
-        
-        
-        
-        
+        AnchorPane.setBottomAnchor(produkteSP, 0.0);  
     }
 
     @FXML
     public void btClick(ActionEvent event) {
         System.out.println("de.dik.WerkzeugkastenFX.gui.produkte.ProduktePresenter.bt11Click()");
-        
         //Farbe ändern
         JFXButton button = (JFXButton) event.getSource();
         button.setStyle("-fx-background-color: rgb(255, 0, 0, 0.5); ");
-        
-        //
-        System.out.println(button.getId());
-        
+
+        System.out.println(button.getId()); 
     }
 
 }

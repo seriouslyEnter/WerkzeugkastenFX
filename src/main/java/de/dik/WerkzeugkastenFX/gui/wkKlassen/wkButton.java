@@ -113,14 +113,6 @@ public class wkButton {
     public String toString() {
         return "wkButton{" + "button=" + button + ", row=" + row + ", column=" + column + ", ist=" + ist + ", soll=" + soll + '}';
     }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+   
         
 }
