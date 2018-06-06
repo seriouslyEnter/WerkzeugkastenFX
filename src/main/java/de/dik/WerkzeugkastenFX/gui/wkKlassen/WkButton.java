@@ -16,9 +16,16 @@ public class WkButton {
     private JFXButton button;
     private Integer row;    //1-6
     private Integer column; //1-5
-    private Integer istSoll; // 0(not selected) 0(ist) 1(soll)
+    private IstSoll istSoll; // 0(not selected) 0(ist) 1(soll)
     
-    public WkButton(JFXButton button, Integer row, Integer column, Integer istSoll) {
+        public WkButton(JFXButton button, Integer row, Integer column) {
+        this.button = button;
+        this.row = row;
+        this.column = column;
+        this.istSoll = IstSoll.NEUTRAL;
+    }
+
+    public WkButton(JFXButton button, Integer row, Integer column, IstSoll istSoll) {
         this.button = button;
         this.row = row;
         this.column = column;
@@ -49,21 +56,21 @@ public class WkButton {
         this.column = column;
     }
 
-    public Integer getIstSoll() {
+    public IstSoll getIstSoll() {
         return istSoll;
     }
 
-    public void setIstSoll(Integer istSoll) {
+    public void setIstSoll(IstSoll istSoll) {
         this.istSoll = istSoll;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.button);
-        hash = 71 * hash + Objects.hashCode(this.row);
-        hash = 71 * hash + Objects.hashCode(this.column);
-        hash = 71 * hash + Objects.hashCode(this.istSoll);
+        hash = 97 * hash + Objects.hashCode(this.button);
+        hash = 97 * hash + Objects.hashCode(this.row);
+        hash = 97 * hash + Objects.hashCode(this.column);
+        hash = 97 * hash + Objects.hashCode(this.istSoll);
         return hash;
     }
 
@@ -88,7 +95,7 @@ public class WkButton {
         if (!Objects.equals(this.column, other.column)) {
             return false;
         }
-        if (!Objects.equals(this.istSoll, other.istSoll)) {
+        if (this.istSoll != other.istSoll) {
             return false;
         }
         return true;
