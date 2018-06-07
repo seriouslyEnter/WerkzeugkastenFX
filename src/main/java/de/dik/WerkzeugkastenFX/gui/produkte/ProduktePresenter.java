@@ -8,7 +8,7 @@ package de.dik.WerkzeugkastenFX.gui.produkte;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.IstSoll;
-import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton;
+import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton2;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
@@ -128,7 +128,7 @@ public class ProduktePresenter implements Initializable {
     @FXML
     private JFXToggleButton IstSollTB;
 
-    private WkButton[][] wkButtonGrid = new WkButton[6][5];
+    private WkButton2[][] wkButtonGrid = new WkButton2[6][5];
 
     private ResourceBundle resources = null;
 
@@ -153,7 +153,7 @@ public class ProduktePresenter implements Initializable {
             if (nextNode.getClass().isInstance(jfxButtonForComparisson) == true) {
                 JFXButton nextButton = new JFXButton();
                 nextButton = (JFXButton) nextNode;
-                wkButtonGrid[row][column] = new WkButton(nextButton, row, column, IstSoll.NEUTRAL);
+                wkButtonGrid[row][column] = new WkButton2(nextButton, row, column, IstSoll.NEUTRAL);
 //                JFXButton nextButton = (JFXButton) nextNode;
 ////                System.out.println("zähler: " + nextButton.getId());
 //                wkButtonGrid[row][column].setButton(nextButton);
@@ -176,36 +176,62 @@ public class ProduktePresenter implements Initializable {
 
         JFXButton button = (JFXButton) event.getSource();
 
-        //TODO: wkButtonGrid Array ist  fertig jetzt hier die Änderungen verfolgen.
+        //TODO: Case Ist und Soll auf den gleichen Button
+        //        Case nur ein grün und rot pro Zeile
         //WkButton anhand von button finden.
         //Damit die Eigenschaften von WkButton geändert werden können.
-        //Und damit die Farbe von JFXButton geändert werden kann.
-        
+        //Und damit die Farbe von JFXButton geändert werden kann.        
         for (int row = 0; row < wkButtonGrid.length; row++) {
-            WkButton[] wkButtonsRow = wkButtonGrid[row];
+            WkButton2[] wkButtonsRow = wkButtonGrid[row];
             for (int column = 0; column < wkButtonsRow.length; column++) {
                 JFXButton wkButton = wkButtonsRow[column].getButton();
                 if (wkButton.equals(button)) {
+                    
+                    //TODO: Toggle Button entfernen, der ist nicht mehr nötig und stört sogar!
+                    
+                    
                     //Wenn Button gefunden IstSoll setzen
                     //IstSoll ändern vom geklickted Button
-                    if (IstSollTB.selectedProperty().getValue() != true) {
+                    //wenn Button neutral und Toggle rot -> rot
+                    if (wkButtonsRow[column].getIstSoll().equals(IstSoll.NEUTRAL) && IstSollTB.selectedProperty().getValue() == false) {
                         //ist
                         wkButtonsRow[column].setIstSoll(IstSoll.IST);
                         //Farbe rot
-                        button.setStyle("-fx-background-color: rgb(255, 0, 0, 0.5); ");
+                        button.setStyle("-fx-background-color: rgba(255, 0, 0, 0.5);");
                         //Flip ToogleButton
                         IstSollTB.setSelected(true);
-                    } else {
+                    //wenn Button rot und Toggle grün -> rot und grün   
+                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.IST) && IstSollTB.selectedProperty().getValue() == true) {
+                        //ist und soll
+                        wkButtonsRow[column].setIstSoll(IstSoll.ISTundSOLL);
+                        //Farbe grün
+                        button.setStyle("-fx-background-color: linear-gradient(from 40% 40% to 60% 60%, #ff0000, #558c5a); -fx-opacity: 0.5");
+                        //dont Flip ToogleButton
+//                        IstSollTB.setSelected(false);
+                    //wenn Button gradient und Toggle grün -> grün
+                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.ISTundSOLL) && IstSollTB.selectedProperty().getValue() == true) {
                         //soll
                         wkButtonsRow[column].setIstSoll(IstSoll.SOLL);
                         //Farbe grün
-                        button.setStyle("-fx-background-color: rgb(85, 140, 90, 0.5); ");
+                        button.setStyle("-fx-background-color: rgba(85, 140, 90, 0.5);");
                         //Flip ToogleButton
                         IstSollTB.setSelected(false);
+                    //wenn Button rot und Toggle rot -> neutral
+                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.SOLL) && IstSollTB.selectedProperty().getValue() == false){
+                        //neutral
+                        wkButtonsRow[column].setIstSoll(IstSoll.NEUTRAL);
+                        //Farbe rot
+                        button.setStyle("-fx-background-color: transparent;");
+                        //Flip ToogleButton
+                        IstSollTB.setSelected(false);
+                    } else {
+                        System.out.println("Wenn hier dann Fehler");
                     }
+                break;
                 }
             }
         }
+        
 
 //        //Farbe ändern vom geklickted Button
 //        if (IstSollTB.selectedProperty().getValue() != true) {

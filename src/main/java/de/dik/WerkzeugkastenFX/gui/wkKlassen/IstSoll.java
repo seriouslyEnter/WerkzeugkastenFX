@@ -10,5 +10,5 @@ package de.dik.WerkzeugkastenFX.gui.wkKlassen;
  * @author gu35nxt
  */
 public enum IstSoll {
-    NEUTRAL, IST, SOLL
+    NEUTRAL, IST, SOLL, ISTundSOLL
 }
