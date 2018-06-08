@@ -38,7 +38,7 @@ public class ProduktePresenter implements Initializable {
     }
 
     @FXML
-    public void btClick(ActionEvent event) {
+    public void btChangeIstSoll(ActionEvent event) {
         JFXButton button = (JFXButton) event.getSource();
 
         //TODO: Case nur ein grün und rot pro Zeile
