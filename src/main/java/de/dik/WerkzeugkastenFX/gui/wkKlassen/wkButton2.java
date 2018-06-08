@@ -12,20 +12,20 @@ import java.util.Objects;
  *
  * @author gu35nxt
  */
-public class wkButton {
+public class wkButton2 {
     private JFXButton button;
     private Integer row;    //1-6
     private Integer column; //1-5
     private IstSoll istSoll; // 0(not selected) 0(ist) 1(soll)
     
-        public wkButton(JFXButton button, Integer row, Integer column) {
+        public wkButton2(JFXButton button, Integer row, Integer column) {
         this.button = button;
         this.row = row;
         this.column = column;
         this.istSoll = IstSoll.NEUTRAL;
     }
 
-    public wkButton(JFXButton button, Integer row, Integer column, IstSoll istSoll) {
+    public wkButton2(JFXButton button, Integer row, Integer column, IstSoll istSoll) {
         this.button = button;
         this.row = row;
         this.column = column;
@@ -85,7 +85,7 @@ public class wkButton {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final wkButton other = (wkButton) obj;
+        final wkButton2 other = (wkButton2) obj;
         if (!Objects.equals(this.button, other.button)) {
             return false;
         }
