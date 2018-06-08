@@ -2,7 +2,7 @@ package de.dik.WerkzeugkastenFX.gui.produkte;
 
 import com.jfoenix.controls.JFXButton;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.IstSoll;
-import de.dik.WerkzeugkastenFX.gui.wkKlassen.wkButton2;
+import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
@@ -21,7 +21,7 @@ public class ProduktePresenter implements Initializable {
     @FXML
     private GridPane produkteGP;
 
-    private wkButton2[][] wkButtonGrid = new wkButton2[6][5];
+    private WkButton[][] wkButtonGrid = new WkButton[6][5];
 
     private ResourceBundle resources = null;
 
@@ -42,7 +42,7 @@ public class ProduktePresenter implements Initializable {
             if (nextNode.getClass().isInstance(jfxButtonForComparisson) == true) {
                 JFXButton nextButton = new JFXButton();
                 nextButton = (JFXButton) nextNode;
-                wkButtonGrid[row][column] = new wkButton2(nextButton, row, column, IstSoll.NEUTRAL);
+                wkButtonGrid[row][column] = new WkButton(nextButton, row, column, IstSoll.NEUTRAL);
                 //Spalten dann Zeilen hochzählen. Von Spalten 0-4(1-5)
                 column++;
                 if (column > 4) {
@@ -64,7 +64,7 @@ public class ProduktePresenter implements Initializable {
         //Damit die Eigenschaften von WkButton geändert werden können.
         //Und damit die Farbe von JFXButton geändert werden kann.        
         for (int row = 0; row < wkButtonGrid.length; row++) {
-            wkButton2[] wkButtonsRow = wkButtonGrid[row];
+            WkButton[] wkButtonsRow = wkButtonGrid[row];
             for (int column = 0; column < wkButtonsRow.length; column++) {
                 JFXButton wkButton = wkButtonsRow[column].getButton();
                 if (wkButton.equals(button)) {
