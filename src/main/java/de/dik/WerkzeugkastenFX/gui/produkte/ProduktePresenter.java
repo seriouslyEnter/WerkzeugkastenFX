@@ -176,8 +176,7 @@ public class ProduktePresenter implements Initializable {
 
         JFXButton button = (JFXButton) event.getSource();
 
-        //TODO: Case Ist und Soll auf den gleichen Button
-        //        Case nur ein grün und rot pro Zeile
+        //TODO: Case nur ein grün und rot pro Zeile
         //WkButton anhand von button finden.
         //Damit die Eigenschaften von WkButton geändert werden können.
         //Und damit die Farbe von JFXButton geändert werden kann.        
@@ -193,7 +192,7 @@ public class ProduktePresenter implements Initializable {
                     //Wenn Button gefunden IstSoll setzen
                     //IstSoll ändern vom geklickted Button
                     //wenn Button neutral und Toggle rot -> rot
-                    if (wkButtonsRow[column].getIstSoll().equals(IstSoll.NEUTRAL) && IstSollTB.selectedProperty().getValue() == false) {
+                    if (wkButtonsRow[column].getIstSoll().equals(IstSoll.NEUTRAL)) {
                         //ist
                         wkButtonsRow[column].setIstSoll(IstSoll.IST);
                         //Farbe rot
@@ -201,7 +200,7 @@ public class ProduktePresenter implements Initializable {
                         //Flip ToogleButton
                         IstSollTB.setSelected(true);
                     //wenn Button rot und Toggle grün -> rot und grün   
-                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.IST) && IstSollTB.selectedProperty().getValue() == true) {
+                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.IST)) {
                         //ist und soll
                         wkButtonsRow[column].setIstSoll(IstSoll.ISTundSOLL);
                         //Farbe grün
@@ -209,7 +208,7 @@ public class ProduktePresenter implements Initializable {
                         //dont Flip ToogleButton
 //                        IstSollTB.setSelected(false);
                     //wenn Button gradient und Toggle grün -> grün
-                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.ISTundSOLL) && IstSollTB.selectedProperty().getValue() == true) {
+                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.ISTundSOLL)) {
                         //soll
                         wkButtonsRow[column].setIstSoll(IstSoll.SOLL);
                         //Farbe grün
@@ -217,7 +216,7 @@ public class ProduktePresenter implements Initializable {
                         //Flip ToogleButton
                         IstSollTB.setSelected(false);
                     //wenn Button rot und Toggle rot -> neutral
-                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.SOLL) && IstSollTB.selectedProperty().getValue() == false){
+                    } else if (wkButtonsRow[column].getIstSoll().equals(IstSoll.SOLL)){
                         //neutral
                         wkButtonsRow[column].setIstSoll(IstSoll.NEUTRAL);
                         //Farbe rot
