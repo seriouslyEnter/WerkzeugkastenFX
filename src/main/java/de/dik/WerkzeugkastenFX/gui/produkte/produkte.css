@@ -22,6 +22,10 @@ and open the template in the editor.
  */
 
 
+.produkteHB {
+    -fx-background-color: #000000
+}
+
 
 .jfx-button .jfx-rippler {
     /*-jfx-rippler-fill: red;*/
