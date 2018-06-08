@@ -34,11 +34,67 @@ public class ProduktePresenter implements Initializable {
         AnchorPane.setRightAnchor(produkteSP, 0.0);
         AnchorPane.setBottomAnchor(produkteSP, 0.0);
 
+        buttonInWkButtonsEinlesen();
+    }
+
+    @FXML
+    public void btClick(ActionEvent event) {
+        JFXButton button = (JFXButton) event.getSource();
+
+        //TODO: Case nur ein grün und rot pro Zeile
+        //WkButton anhand von button finden.
+        //Damit die Eigenschaften von WkButton geändert werden können.
+        //Und damit die Farbe von JFXButton geändert werden kann.
+        for (WkButton[] wkButtonsRow : wkButtonGrid) {
+            for (WkButton wkButton : wkButtonsRow) {
+                JFXButton jfxButton = wkButton.getButton();
+                if (jfxButton.equals(button)) {
+                    //Wenn Button gefunden IstSoll setzen
+                    //IstSoll ändern vom geklickted Button
+                    //wenn Button neutral und Toggle rot -> rot
+                    switch (wkButton.getIstSoll()) {
+                        case NEUTRAL:
+                            //ist
+                            wkButton.setIstSoll(IstSoll.IST);
+                            //Farbe rot
+                            button.setStyle("-fx-background-color: rgba(255, 0, 0, 0.5);");
+                            //wenn Button rot und Toggle grün -> rot und grün   
+                            break;
+                        case IST:
+                            //ist und soll
+                            wkButton.setIstSoll(IstSoll.ISTundSOLL);
+                            //Farbe grün
+                            button.setStyle("-fx-background-color: linear-gradient(from 40% 40% to 60% 60%, #ff0000, #558c5a); -fx-opacity: 0.5");
+                            //wenn Button gradient und Toggle grün -> grün
+                            break;
+                        case ISTundSOLL:
+                            //soll
+                            wkButton.setIstSoll(IstSoll.SOLL);
+                            //Farbe grün
+                            button.setStyle("-fx-background-color: rgba(85, 140, 90, 0.5);");
+                            //wenn Button rot und Toggle rot -> neutral
+                            break;
+                        case SOLL:
+                            //neutral
+                            wkButton.setIstSoll(IstSoll.NEUTRAL);
+                            //Farbe rot
+                            button.setStyle("-fx-background-color: transparent;");
+                            break;
+                        default:
+                            System.out.println("Wenn hier dann Fehler");
+                            break;
+                    }
+                }
+            }
+        }
+        System.out.println(button.getId());
+    }
+
+    private void buttonInWkButtonsEinlesen() {
         JFXButton jfxButtonForComparisson = new JFXButton();
         int row = 0;
         int column = 0;
-        for (Iterator it = produkteGP.getChildrenUnmodifiable().iterator(); it.hasNext();) {
-            Node nextNode = (Node) it.next();
+        for (Node nextNode : produkteGP.getChildrenUnmodifiable()) {
             if (nextNode.getClass().isInstance(jfxButtonForComparisson) == true) {
                 JFXButton nextButton = new JFXButton();
                 nextButton = (JFXButton) nextNode;
@@ -51,61 +107,5 @@ public class ProduktePresenter implements Initializable {
                 }
             }
         }
-    }
-
-    @FXML
-    public void btClick(ActionEvent event) {
-        System.out.println("de.dik.WerkzeugkastenFX.gui.produkte.ProduktePresenter.bt11Click()");
-        JFXButton button = (JFXButton) event.getSource();
-
-        //TODO: Case nur ein grün und rot pro Zeile
-        
-        //WkButton anhand von button finden.
-        //Damit die Eigenschaften von WkButton geändert werden können.
-        //Und damit die Farbe von JFXButton geändert werden kann.        
-        for (int row = 0; row < wkButtonGrid.length; row++) {
-            WkButton[] wkButtonsRow = wkButtonGrid[row];
-            for (int column = 0; column < wkButtonsRow.length; column++) {
-                JFXButton wkButton = wkButtonsRow[column].getButton();
-                if (wkButton.equals(button)) {
-                    //Wenn Button gefunden IstSoll setzen
-                    //IstSoll ändern vom geklickted Button
-                    //wenn Button neutral und Toggle rot -> rot
-                    switch (wkButtonsRow[column].getIstSoll()) {
-                        case NEUTRAL:
-                            //ist
-                            wkButtonsRow[column].setIstSoll(IstSoll.IST);
-                            //Farbe rot
-                            button.setStyle("-fx-background-color: rgba(255, 0, 0, 0.5);");
-                            //wenn Button rot und Toggle grün -> rot und grün   
-                            break;
-                        case IST:
-                            //ist und soll
-                            wkButtonsRow[column].setIstSoll(IstSoll.ISTundSOLL);
-                            //Farbe grün
-                            button.setStyle("-fx-background-color: linear-gradient(from 40% 40% to 60% 60%, #ff0000, #558c5a); -fx-opacity: 0.5");
-                            //wenn Button gradient und Toggle grün -> grün
-                            break;
-                        case ISTundSOLL:
-                            //soll
-                            wkButtonsRow[column].setIstSoll(IstSoll.SOLL);
-                            //Farbe grün
-                            button.setStyle("-fx-background-color: rgba(85, 140, 90, 0.5);");
-                            //wenn Button rot und Toggle rot -> neutral
-                            break;
-                        case SOLL:
-                            //neutral
-                            wkButtonsRow[column].setIstSoll(IstSoll.NEUTRAL);
-                            //Farbe rot
-                            button.setStyle("-fx-background-color: transparent;");
-                            break;
-                        default:
-                            System.out.println("Wenn hier dann Fehler");
-                            break;
-                    }
-                }
-            }
-        }
-        System.out.println(button.getId());
     }
 }
