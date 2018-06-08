@@ -16,24 +16,20 @@ public class wkButton {
     private JFXButton button;
     private Integer row;    //1-6
     private Integer column; //1-5
-    private Boolean ist;
-    private Boolean soll;
+    private IstSoll istSoll; // 0(not selected) 0(ist) 1(soll)
     
-    
-        public wkButton(JFXButton button, Integer row, Integer column, Boolean ist, Boolean soll) {
+        public wkButton(JFXButton button, Integer row, Integer column) {
         this.button = button;
         this.row = row;
         this.column = column;
-        this.ist = ist;
-        this.soll = soll;
+        this.istSoll = IstSoll.NEUTRAL;
     }
 
-    public Boolean getSoll() {
-        return soll;
-    }
-
-    public void setSoll(Boolean soll) {
-        this.soll = soll;
+    public wkButton(JFXButton button, Integer row, Integer column, IstSoll istSoll) {
+        this.button = button;
+        this.row = row;
+        this.column = column;
+        this.istSoll = istSoll;
     }
 
     public JFXButton getButton() {
@@ -60,22 +56,21 @@ public class wkButton {
         this.column = column;
     }
 
-    public Boolean getIst() {
-        return ist;
+    public IstSoll getIstSoll() {
+        return istSoll;
     }
 
-    public void setIst(Boolean ist) {
-        this.ist = ist;
+    public void setIstSoll(IstSoll istSoll) {
+        this.istSoll = istSoll;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.button);
-        hash = 59 * hash + Objects.hashCode(this.row);
-        hash = 59 * hash + Objects.hashCode(this.column);
-        hash = 59 * hash + Objects.hashCode(this.ist);
-        hash = 59 * hash + Objects.hashCode(this.soll);
+        hash = 97 * hash + Objects.hashCode(this.button);
+        hash = 97 * hash + Objects.hashCode(this.row);
+        hash = 97 * hash + Objects.hashCode(this.column);
+        hash = 97 * hash + Objects.hashCode(this.istSoll);
         return hash;
     }
 
@@ -100,10 +95,7 @@ public class wkButton {
         if (!Objects.equals(this.column, other.column)) {
             return false;
         }
-        if (!Objects.equals(this.ist, other.ist)) {
-            return false;
-        }
-        if (!Objects.equals(this.soll, other.soll)) {
+        if (this.istSoll != other.istSoll) {
             return false;
         }
         return true;
@@ -111,8 +103,7 @@ public class wkButton {
 
     @Override
     public String toString() {
-        return "wkButton{" + "button=" + button + ", row=" + row + ", column=" + column + ", ist=" + ist + ", soll=" + soll + '}';
+        return "WkButton{" + "button=" + button + ", row=" + row + ", column=" + column + ", istSoll=" + istSoll + '}';
     }
-   
-        
+
 }
