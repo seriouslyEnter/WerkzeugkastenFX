@@ -473,36 +473,36 @@
                               
                         
                        
-                        <JFXButton fx:id="bt11" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt12" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="4" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt13" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="4" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt14" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="4" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt15" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="4" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt21" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="8" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt22" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="8" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt23" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="8" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt24" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="8" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt25" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="8" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt31" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="12" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt32" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="12" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt33" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="12" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt34" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="12" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt35" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="12" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt41" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="16" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt42" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="16" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt43" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="16" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt44" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="16" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt45" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="16" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt51" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="20" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt52" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="20" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt53" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="20" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt54" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="20" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt55" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="20" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt61" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="24" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt62" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="24" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt63" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="24" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt64" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="24" GridPane.rowSpan="3" />
-                        <JFXButton fx:id="bt65" contentDisplay="GRAPHIC_ONLY" onAction="#btChangeIstSoll" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="24" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt11" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt12" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="4" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt13" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="4" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt14" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="4" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt15" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="4" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt21" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="8" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt22" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="8" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt23" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="8" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt24" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="8" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt25" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="8" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt31" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="12" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt32" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="12" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt33" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="12" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt34" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="12" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt35" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="12" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt41" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="16" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt42" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="16" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt43" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="16" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt44" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="16" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt45" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="16" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt51" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="20" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt52" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="20" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt53" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="20" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt54" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="20" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt55" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="20" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt61" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="24" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt62" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="24" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt63" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="24" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt64" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="24" GridPane.rowSpan="3" />
+                        <JFXButton fx:id="bt65" contentDisplay="GRAPHIC_ONLY" onAction="#buttonColorChange" prefHeight="152.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="24" GridPane.rowSpan="3" />
       
                                         
                       
