@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.IstSoll;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -72,7 +73,7 @@ public class ProduktePresenter implements Initializable {
                         //wenn Button rot und Toggle grün -> rot und grün  
                         case IST:
                             //Check ob Änderung valide? Wenn nicht, änder Farbe trotzdem aber dann wechsel automatisch weiter zu nächsten Farbe
-                            if (wkButtonRowValidation(wkButtonAction, wkButtonsRow, IstSoll.IST) == true) {
+                            if (wkButtonRowValidation(wkButtonAction, wkButtonsRow, IstSoll.ISTundSOLL) == true) {
                                 //ist und soll
                                 wkButtonAction.setIstSoll(IstSoll.ISTundSOLL);
                                 //Farbe grün
@@ -88,20 +89,36 @@ public class ProduktePresenter implements Initializable {
                             break;
                         //wenn Button gradient und Toggle grün -> grün
                         case ISTundSOLL:
-                            //soll
-                            wkButtonAction.setIstSoll(IstSoll.SOLL);
-                            //Farbe grün
-                            buttonAction.setStyle("-fx-background-color: rgba(85, 140, 90, 0.5);");
+                            //Check ob Änderung valide? Wenn nicht, änder Farbe trotzdem aber dann wechsel automatisch weiter zu nächsten Farbe
+                            if (wkButtonRowValidation(wkButtonAction, wkButtonsRow, IstSoll.SOLL) == true) {
+                                //soll
+                                wkButtonAction.setIstSoll(IstSoll.SOLL);
+                                //Farbe grün
+                                buttonAction.setStyle("-fx-background-color: rgba(85, 140, 90, 0.5);");
+                            } else {
+                                //soll
+                                wkButtonAction.setIstSoll(IstSoll.SOLL);
+                                //Farbe grün
+                                buttonAction.setStyle("-fx-background-color: rgba(85, 140, 90, 0.5);");
+                                //wechsel zur nächsten Farbe in dem diese Methode nochmal aufgerufen wird.
+                                buttonColorChange(event);
+                            }
                             break;
                         //wenn Button rot und Toggle rot -> neutral
                         case SOLL:
-                            //neutral
-                            if (wkButtonRowValidation(wkButtonAction, wkButtonsRow, IstSoll.NEUTRAL)) {
+                            //Check ob Änderung valide? Wenn nicht, änder Farbe trotzdem aber dann wechsel automatisch weiter zu nächsten Farbe
+                            if (wkButtonRowValidation(wkButtonAction, wkButtonsRow, IstSoll.NEUTRAL) == true) {
+                                //neutral
                                 wkButtonAction.setIstSoll(IstSoll.NEUTRAL);
                                 //Farbe rot
                                 buttonAction.setStyle("-fx-background-color: transparent;");
                             } else {
-                                System.out.println("änderung nicht valide");
+                                //neutral
+                                wkButtonAction.setIstSoll(IstSoll.NEUTRAL);
+                                //Farbe rot
+                                buttonAction.setStyle("-fx-background-color: transparent;");
+                                //wechsel zur nächsten Farbe in dem diese Methode nochmal aufgerufen wird.
+                                buttonColorChange(event);
                             }
                             break;
                         default:
@@ -119,17 +136,18 @@ public class ProduktePresenter implements Initializable {
         switch (changeToColor) {
             case NEUTRAL:
                 //immer erlaubt
-                changeValid = true;
+                changeValid = validateChangeToNeutral(wkButtonRow, wkButtonAction, changeValid);
                 break;
-                //wechsel zu ist
+            //wechsel zu ist
             case IST:
                 changeValid = validateChangeToIst(wkButtonRow, wkButtonAction, changeValid);
                 break;
-                //wechsel zu istundsoll
+            //wechsel zu istundsoll
             case ISTundSOLL:
                 changeValid = validateChangeToIstUndSoll(wkButtonRow, wkButtonAction, changeValid);
                 break;
             case SOLL:
+                changeValid = validateChangeToSoll(wkButtonRow, wkButtonAction, changeValid);
                 break;
             default:
                 changeValid = true;
@@ -138,10 +156,49 @@ public class ProduktePresenter implements Initializable {
         return changeValid;
     }
 
-        private Boolean validateChangeToIstUndSoll(WkButton[] wkButtonRow, WkButton wkButtonAction, Boolean changeValid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private Boolean validateChangeToNeutral(WkButton[] wkButtonRow, WkButton wkButtonAction, Boolean changeValid) {
+        //wechsel zu neutral immer erlaubt
+        changeValid = true;
+        return changeValid;
     }
-    
+
+    private Boolean validateChangeToSoll(WkButton[] wkButtonRow, WkButton wkButtonAction, Boolean changeValid) {
+        //nur ein IST und IST vor Soll und kein anderes ISTundSOLL
+        Boolean keinSoll = true;
+        Boolean keinISTundSollAnAndererStelle = true;
+        Boolean istVorSoll = true;
+        for (WkButton validate : wkButtonRow) {
+            if (validate.getIstSoll().equals(IstSoll.SOLL)) {
+                keinSoll = false;
+            } else if (validate.getIstSoll().equals(IstSoll.ISTundSOLL) && !Objects.equals(wkButtonAction.getColumn(), validate.getColumn())) {
+                keinISTundSollAnAndererStelle = false;
+            } else if (validate.getIstSoll().equals(IstSoll.IST)) {
+                //dann muss die Position vom ist noch vor dem Soll sein.
+                if (wkButtonAction.getColumn() <= validate.getColumn()) {
+                    istVorSoll = false;
+                }
+            }
+        }
+        if (keinSoll == true && keinISTundSollAnAndererStelle == true && istVorSoll == true) {
+            changeValid = true;
+        }
+        return changeValid;
+    }
+
+    private Boolean validateChangeToIstUndSoll(WkButton[] wkButtonRow, WkButton wkButtonAction, Boolean changeValid) {
+        //nur ein IST und IST vor Soll und kein anderes ISTundSOLL
+        Boolean alleNeutralAusserDerActionButton = true;
+        for (WkButton validate : wkButtonRow) {
+            if (validate.getIstSoll() != IstSoll.NEUTRAL && !Objects.equals(wkButtonAction.getColumn(), validate.getColumn())) {
+                alleNeutralAusserDerActionButton = false;
+            }
+        }
+        if (alleNeutralAusserDerActionButton == true) {
+            changeValid = true;
+        }
+        return changeValid;
+    }
+
     private Boolean validateChangeToIst(WkButton[] wkButtonRow, WkButton wkButtonAction, Boolean changeValid) {
         //nur ein IST und IST vor Soll und kein anderes ISTundSOLL
         Boolean keinIST = true;
@@ -183,6 +240,5 @@ public class ProduktePresenter implements Initializable {
             }
         }
     }
-
 
 }
