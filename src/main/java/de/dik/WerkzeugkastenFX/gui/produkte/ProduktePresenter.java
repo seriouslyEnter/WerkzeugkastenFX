@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.IstSoll;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,46 +38,56 @@ public class ProduktePresenter implements Initializable {
 
     @FXML
     public void btChangeIstSoll(ActionEvent event) {
-        JFXButton button = (JFXButton) event.getSource();
+        JFXButton buttonAction = (JFXButton) event.getSource();
+        JFXButton buttonInWkGrid;
 
         //TODO: Case nur ein grün und rot pro Zeile
         //WkButton anhand von button finden.
         //Damit die Eigenschaften von WkButton geändert werden können.
         //Und damit die Farbe von JFXButton geändert werden kann.
         for (WkButton[] wkButtonsRow : wkButtonGrid) {
-            for (WkButton wkButton : wkButtonsRow) {
-                JFXButton jfxButton = wkButton.getButton();
-                if (jfxButton.equals(button)) {
+            for (WkButton wkButtonAction : wkButtonsRow) {
+                buttonInWkGrid = wkButtonAction.getButton();
+                if (buttonInWkGrid.equals(buttonAction)) {
                     //Wenn Button gefunden IstSoll setzen
                     //IstSoll ändern vom geklickted Button
-                    //wenn Button neutral und Toggle rot -> rot
-                    switch (wkButton.getIstSoll()) {
+                    switch (wkButtonAction.getIstSoll()) {
+                        //wenn Button neutral und Toggle rot -> rot
                         case NEUTRAL:
-                            //ist
-                            wkButton.setIstSoll(IstSoll.IST);
-                            //Farbe rot
-                            button.setStyle("-fx-background-color: rgba(255, 0, 0, 0.5);");
-                            //wenn Button rot und Toggle grün -> rot und grün   
+                            //Wenn Button in Reihe gefunden validiere ob geändert werden darf.
+                            if (wkButtonRowValidation(wkButtonAction, wkButtonsRow, IstSoll.IST)) {
+                                //ist
+                                wkButtonAction.setIstSoll(IstSoll.IST);
+                                //Farbe rot
+                                buttonAction.setStyle("-fx-background-color: rgba(255, 0, 0, 0.5);");
+                            } else {
+                                System.out.println("änderung nicht valide");
+                            }
                             break;
+                        //wenn Button rot und Toggle grün -> rot und grün  
                         case IST:
                             //ist und soll
-                            wkButton.setIstSoll(IstSoll.ISTundSOLL);
+                            wkButtonAction.setIstSoll(IstSoll.ISTundSOLL);
                             //Farbe grün
-                            button.setStyle("-fx-background-color: linear-gradient(from 40% 40% to 60% 60%, #ff0000, #558c5a); -fx-opacity: 0.5");
-                            //wenn Button gradient und Toggle grün -> grün
+                            buttonAction.setStyle("-fx-background-color: linear-gradient(from 40% 40% to 60% 60%, #ff0000, #558c5a); -fx-opacity: 0.5");
                             break;
+                        //wenn Button gradient und Toggle grün -> grün
                         case ISTundSOLL:
                             //soll
-                            wkButton.setIstSoll(IstSoll.SOLL);
+                            wkButtonAction.setIstSoll(IstSoll.SOLL);
                             //Farbe grün
-                            button.setStyle("-fx-background-color: rgba(85, 140, 90, 0.5);");
-                            //wenn Button rot und Toggle rot -> neutral
+                            buttonAction.setStyle("-fx-background-color: rgba(85, 140, 90, 0.5);");
                             break;
+                        //wenn Button rot und Toggle rot -> neutral
                         case SOLL:
                             //neutral
-                            wkButton.setIstSoll(IstSoll.NEUTRAL);
-                            //Farbe rot
-                            button.setStyle("-fx-background-color: transparent;");
+                            if (wkButtonRowValidation(wkButtonAction, wkButtonsRow, IstSoll.NEUTRAL)) {
+                                wkButtonAction.setIstSoll(IstSoll.NEUTRAL);
+                                //Farbe rot
+                                buttonAction.setStyle("-fx-background-color: transparent;");
+                            } else {
+                                System.out.println("änderung nicht valide");
+                            }
                             break;
                         default:
                             System.out.println("Wenn hier dann Fehler");
@@ -87,7 +96,51 @@ public class ProduktePresenter implements Initializable {
                 }
             }
         }
-        System.out.println(button.getId());
+        System.out.println(buttonAction.getId());
+    }
+
+    private Boolean wkButtonRowValidation(WkButton wkButtonAction, WkButton[] wkButtonRow, IstSoll changeToColor) {
+        Boolean changeValid = false;
+        switch (changeToColor) {
+            case NEUTRAL:
+                //immer erlaubt
+                changeValid = true;
+                break;
+            case IST:
+                changeValid = validateChangeToIst(wkButtonRow, wkButtonAction, changeValid);
+                break;
+            case ISTundSOLL:
+                break;
+            case SOLL:
+                break;
+            default:
+                changeValid = true;
+                break;
+        }
+        return changeValid;
+    }
+
+    private Boolean validateChangeToIst(WkButton[] wkButtonRow, WkButton wkButtonAction, Boolean changeValid) {
+        //nur ein IST und IST vor Soll und kein anderes ISTundSOLL
+        Boolean keinIST = true;
+        Boolean keinISTundSoll = true;
+        Boolean keinSollOderIstVorSoll = true;
+        for (WkButton validate : wkButtonRow) {
+            if (validate.getIstSoll().equals(IstSoll.IST)) {
+                keinIST = false;
+            } else if (validate.getIstSoll().equals(IstSoll.ISTundSOLL)) {
+                keinISTundSoll = false;
+            } else if (validate.getIstSoll().equals(IstSoll.SOLL)) {
+                //dann muss die Position vom ist noch vor dem Soll sein.
+                if (wkButtonAction.getColumn() >= validate.getColumn()) {
+                    keinSollOderIstVorSoll = false;
+                }
+            }
+        }
+        if (keinIST == true && keinISTundSoll == true && keinSollOderIstVorSoll == true) {
+            changeValid = true;
+        }
+        return changeValid;
     }
 
     private void buttonInWkButtonsEinlesen() {
