@@ -3,6 +3,8 @@ package de.dik.WerkzeugkastenFX.gui.produkte;
 import com.jfoenix.controls.JFXButton;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.IstSoll;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -14,6 +16,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
+
+
 public class ProduktePresenter implements Initializable {
 
     @FXML
@@ -24,6 +28,8 @@ public class ProduktePresenter implements Initializable {
     private WkButton[][] wkButtonGrid = new WkButton[6][5];
 
     private ResourceBundle resources = null;
+    
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,6 +41,20 @@ public class ProduktePresenter implements Initializable {
         AnchorPane.setBottomAnchor(produkteSP, 0.0);
 
         buttonInWkButtonsEinlesen();
+
+        
+FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.CLOSE);
+icon.setSize("20em");
+
+produkteGP.add(icon, 7, 4);
+
+//        FontAwesomeIconView fontAwesomeIcon
+//                = new FontAwesomeIconView(FontAwesomeIcon.AMBULANCE);
+//        fontAwesomeIcon.setSize("10em");
+//
+//
+
+
     }
 
     @FXML

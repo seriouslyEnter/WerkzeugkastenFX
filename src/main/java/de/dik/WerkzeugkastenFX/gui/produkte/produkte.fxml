@@ -28,6 +28,7 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints vgrow="NEVER" />
@@ -92,7 +93,7 @@
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: rgb(0,60,90);" text="Produkte" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: rgb(0,60,90);" text="Produkte" textFill="WHITE" GridPane.columnSpan="7" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
