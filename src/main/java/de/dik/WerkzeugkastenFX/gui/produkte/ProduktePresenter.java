@@ -5,18 +5,21 @@ import de.dik.WerkzeugkastenFX.gui.wkKlassen.IstSoll;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-
-
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 public class ProduktePresenter implements Initializable {
 
@@ -27,9 +30,10 @@ public class ProduktePresenter implements Initializable {
 
     private WkButton[][] wkButtonGrid = new WkButton[6][5];
 
-    private ResourceBundle resources = null;
-    
+    FontAwesomeIconView iconClose = new FontAwesomeIconView(FontAwesomeIcon.CLOSE, "5em");
+    FontAwesomeIconView iconCheck = new FontAwesomeIconView(FontAwesomeIcon.CHECK, "5em");
 
+    private ResourceBundle resources = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,19 +46,33 @@ public class ProduktePresenter implements Initializable {
 
         buttonInWkButtonsEinlesen();
 
-        
-FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.CLOSE);
-icon.setSize("20em");
+//FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.CLOSE);
+//icon.setSize("5em");
+//
+//Text thumbsUpIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.THUMBS_UP, "4em");
+//thumbsUpIcon.getStyleClass().add("");
+//root.getChildren().add(thumbsUpIcon); 
+//        FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.CLOSE, "5em");
+        //icon.getStyleClass().add("fontawesome-close");
+//        icon.setFill(Color.RED);
+        HBox hboxRow1 = new HBox(10d);
+        hboxRow1.setFillHeight(true);
+        hboxRow1.setAlignment(Pos.CENTER);
+        produkteGP.add(hboxRow1, 7, 4, 1, 3);
 
-produkteGP.add(icon, 7, 4);
+        iconCheck.setStyleClass("check-icon");
+        iconCheck.setDisable(true);
+        hboxRow1.getChildren().add(iconCheck);
+
+        iconClose.setStyleClass("close-icon");
+        iconClose.setDisable(false);
+        hboxRow1.getChildren().add(iconClose);
 
 //        FontAwesomeIconView fontAwesomeIcon
 //                = new FontAwesomeIconView(FontAwesomeIcon.AMBULANCE);
 //        fontAwesomeIcon.setSize("10em");
 //
 //
-
-
     }
 
     @FXML

@@ -33,3 +33,48 @@ and open the template in the editor.
     /*-jfx-rippler-fill: rgb(0,110,110);*/
     /*-jfx-rippler-fill: rgb(0,60,90);*/
 }
+
+.close-icon { 
+    -glyph-name: "CLOSE";
+    -fx-fill: red;  
+    -fx-effect: dropshadow(three-pass-box, red , 10, 0, 0, 0);
+    -glyph-size: 50px;
+
+    /*-fx-text-fill: -icons-color;*/
+    /*-fx-fill: -icons-color;*/
+} 
+
+.close-icon:disabled { 
+    -glyph-name: "CLOSE";
+    -fx-fill: rgb(100, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, red , 0, 0, 0, 0);
+    -glyph-size: 50px;
+} 
+
+.check-icon { 
+    -glyph-name: "CHECK";
+    -fx-fill: yellowgreen;  
+    -fx-effect: dropshadow(three-pass-box, yellowgreen , 10, 0, 0, 0);
+    -glyph-size: 50px;
+
+    /*-fx-text-fill: -icons-color;*/
+    /*-fx-fill: -icons-color;*/
+} 
+
+.check-icon:disabled { 
+    -glyph-name: "CHECK";
+    -fx-fill: rgb(0, 100, 0);
+    -fx-effect: dropshadow(three-pass-box, yellowgreen , 0, 0, 0, 0);
+    -glyph-size: 50px;
+} 
+
+
+.thumbs-up-icon { 
+    -glyph-name: "THUMBS_UP"; 
+    -icons-color: #000000;
+    -fx-effect: dropshadow(three-pass-box, red , 10, 0, 0, 0);
+} 
+
+.thumbs-up-icon:hover { 
+    -fx-effect: dropshadow(three-pass-box, red , 10, 0, 0, 0); 
+}

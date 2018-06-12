@@ -17,8 +17,8 @@
 
 <ScrollPane fx:id="produkteSP" fitToHeight="true" fitToWidth="true" stylesheets="@produkte.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dik.WerkzeugkastenFX.gui.produkte.ProduktePresenter">
     <content>
-      <HBox id="produkteHB" fx:id="produkteHB" style="-fx-background-color: #FFFFFF;" styleClass="produkteHB" stylesheets="@produkte.css">
-         <children>
+        <HBox id="produkteHB" fx:id="produkteHB" style="-fx-background-color: #FFFFFF;">
+            <children>
                 <GridPane fx:id="produkteGP">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
@@ -28,7 +28,7 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="50.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints vgrow="NEVER" />
@@ -40,7 +40,7 @@
                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="2.0" minHeight="2.0" prefHeight="2.0" vgrow="SOMETIMES" />
                   
-                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="2.0" minHeight="2.0" prefHeight="2.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="2.0" minHeight="2.0" prefHeight="2.0" vgrow="SOMETIMES" />        
@@ -88,7 +88,7 @@
                         
                               
                         
-                              <Label text="Industrie 4.0 " textFill="WHITE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <Label text="Industrie 4.0 " textFill="WHITE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
@@ -291,7 +291,7 @@
                                   
                                         
                       
-                              <Label prefWidth="120.0" style="-fx-border-width: 0; -fx-border-color: rgb(0,60,90);" text="Integration von Sesonren / Aktoren" textFill="#003c5a" wrapText="true" GridPane.rowIndex="8" GridPane.rowSpan="3">
+                        <Label prefWidth="120.0" style="-fx-border-width: 0; -fx-border-color: rgb(0,60,90);" text="Integration von Sesonren / Aktoren" textFill="#003c5a" wrapText="true" GridPane.rowIndex="8" GridPane.rowSpan="3">
                             <font>
                                 <Font name="System Bold" size="12.0" />
                             </font>
@@ -511,12 +511,12 @@
                       
                                         
                   
-                          </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
                 </GridPane>
-         </children>
-      </HBox>
+            </children>
+        </HBox>
     </content>
 </ScrollPane>
