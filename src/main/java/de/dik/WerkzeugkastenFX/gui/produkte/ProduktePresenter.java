@@ -5,7 +5,6 @@ import de.dik.WerkzeugkastenFX.gui.wkKlassen.IstSoll;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -18,8 +17,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 
 public class ProduktePresenter implements Initializable {
 
@@ -29,9 +26,6 @@ public class ProduktePresenter implements Initializable {
     private GridPane produkteGP;
 
     private WkButton[][] wkButtonGrid = new WkButton[6][5];
-
-    FontAwesomeIconView iconClose = new FontAwesomeIconView(FontAwesomeIcon.CLOSE, "5em");
-    FontAwesomeIconView iconCheck = new FontAwesomeIconView(FontAwesomeIcon.CHECK, "5em");
 
     private ResourceBundle resources = null;
 
@@ -46,35 +40,40 @@ public class ProduktePresenter implements Initializable {
 
         buttonInWkButtonsEinlesen();
 
-//FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.CLOSE);
-//icon.setSize("5em");
-//
-//Text thumbsUpIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.THUMBS_UP, "4em");
-//thumbsUpIcon.getStyleClass().add("");
-//root.getChildren().add(thumbsUpIcon); 
-//        FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.CLOSE, "5em");
-        //icon.getStyleClass().add("fontawesome-close");
-//        icon.setFill(Color.RED);
-        HBox hboxRow1 = new HBox(10d);
-        hboxRow1.setFillHeight(true);
-        hboxRow1.setAlignment(Pos.CENTER);
-        produkteGP.add(hboxRow1, 7, 4, 1, 3);
-
-        iconCheck.setStyleClass("check-icon");
-        iconCheck.setDisable(true);
-        hboxRow1.getChildren().add(iconCheck);
-
-        iconClose.setStyleClass("close-icon");
-        iconClose.setDisable(false);
-        hboxRow1.getChildren().add(iconClose);
-
-//        FontAwesomeIconView fontAwesomeIcon
-//                = new FontAwesomeIconView(FontAwesomeIcon.AMBULANCE);
-//        fontAwesomeIcon.setSize("10em");
-//
-//
+        rowValidationLights();
     }
 
+    private void rowValidationLights() {
+        Integer row = 0;
+        for (int i = 1; i < 7; i++) {
+            row = i * 4;
+            
+            //HBox
+            HBox hboxRowVal = new HBox(10d);
+            hboxRowVal.setFillHeight(true);
+            hboxRowVal.setAlignment(Pos.CENTER);
+
+            //Invalid
+            FontAwesomeIconView invalid = new FontAwesomeIconView(FontAwesomeIcon.CLOSE, "5em");
+            invalid.setStyleClass("invalid-icon");
+            invalid.setDisable(false);
+            hboxRowVal.getChildren().add(invalid);
+
+            //Valid
+            FontAwesomeIconView valid = new FontAwesomeIconView(FontAwesomeIcon.CHECK, "5em");
+            valid.setStyleClass("valid-icon");
+            valid.setDisable(true);
+            hboxRowVal.getChildren().add(valid);
+
+            //Add to Grid
+            produkteGP.add(hboxRowVal, 7, row, 1, 3);
+        }
+    }
+
+
+    
+    
+    //TODO: row validation
     @FXML
     public void buttonColorChange(ActionEvent event) {
         JFXButton buttonAction = (JFXButton) event.getSource();
