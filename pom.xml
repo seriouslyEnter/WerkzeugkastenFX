@@ -128,6 +128,20 @@ limitations under the License.
             <version>2.0.10-5</version>
         </dependency>
         
+        
+        <dependency> 
+            <groupId>eu.hansolo</groupId> 
+            <artifactId>charts</artifactId> 
+            <version>1.0.5</version> 
+        </dependency>
+        
+        <dependency> 
+            <groupId>eu.hansolo</groupId> 
+            <artifactId>tilesfx</artifactId> 
+            <version>1.5.7</version> 
+        </dependency>
+        
+        
     </dependencies>
     <build>
         <defaultGoal>clean package</defaultGoal>
@@ -212,14 +226,14 @@ limitations under the License.
 <!--
 
 
--->
+    -->
 
-<repositories>
-  <repository>
-    <id>central</id>
-    <name>bintray</name>
-    <url>http://jcenter.bintray.com</url>
-  </repository>
-</repositories>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>bintray</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
 
 </project>

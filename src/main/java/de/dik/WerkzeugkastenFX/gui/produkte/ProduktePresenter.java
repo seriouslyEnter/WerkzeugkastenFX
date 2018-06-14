@@ -5,7 +5,15 @@ import de.dik.WerkzeugkastenFX.gui.wkKlassen.IstSoll;
 import de.dik.WerkzeugkastenFX.gui.wkKlassen.WkButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import eu.hansolo.tilesfx.Tile;
+import eu.hansolo.tilesfx.Tile.SkinType;
+import eu.hansolo.tilesfx.TileBuilder;
+import eu.hansolo.tilesfx.chart.ChartData;
+import eu.hansolo.tilesfx.chart.RadarChart;
+import eu.hansolo.tilesfx.chart.RadarChart.Mode;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,9 +25,13 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Stop;
 
 public class ProduktePresenter implements Initializable {
 
+    @FXML
+    private HBox produkteHB;
     @FXML
     private ScrollPane produkteSP;
     @FXML
@@ -43,7 +55,8 @@ public class ProduktePresenter implements Initializable {
 
         rowValidationLights();
         
-        
+        chart();
+
     }
 
     private void rowValidationLights() {
@@ -316,5 +329,76 @@ public class ProduktePresenter implements Initializable {
             }
         }
     }
+
+    private void chart() {
+        
+                ChartData a = new ChartData("eins", 1);
+        ChartData b = new ChartData("zwei", 2);
+        ChartData c = new ChartData("drei", 3);
+        ChartData d = new ChartData("vier", 4);
+        
+        
+        
+    Tile radarChartTile2;
+
+    radarChartTile2  = TileBuilder.create().skinType(SkinType.RADAR_CHART)
+            .prefSize(500, 500)
+            .minValue(0)
+            .maxValue(5)
+            .title("RadarChart Polygon")
+            .unit("Unit")
+            .radarChartMode(Mode.POLYGON)
+            .gradientStops(new Stop(0.00000, Color.TRANSPARENT),
+                    new Stop(0.00001, Color.web("#3552a0")),
+                    new Stop(0.09090, Color.web("#456acf")),
+                    new Stop(0.27272, Color.web("#45a1cf")),
+                    new Stop(0.36363, Color.web("#30c8c9")),
+                    new Stop(0.45454, Color.web("#30c9af")),
+                    new Stop(0.50909, Color.web("#56d483")),
+                    new Stop(0.72727, Color.web("#9adb49")),
+                    new Stop(0.81818, Color.web("#efd750")),
+                    new Stop(0.90909, Color.web("#ef9850")),
+                    new Stop(1.00000, Color.web("#ef6050")))
+            .text("Test")
+            .chartData(a,b,c,d)
+            .tooltipText("")
+            .animated(true)
+            .build();
+    
+    produkteHB.getChildren().add(radarChartTile2);
+
+//        List<ChartData> chartDataList = new ArrayList();
+//
+//        ChartData a = new ChartData("eins", 1);
+//        ChartData b = new ChartData("zwei", 2);
+//        ChartData c = new ChartData("drei", 3);
+//        ChartData d = new ChartData("vier", 4);
+//
+//        chartDataList.add(a);
+//        chartDataList.add(b);
+//        chartDataList.add(c);
+//        chartDataList.add(d);
+//
+//        RadarChart radarChart = new RadarChart(chartDataList);
+//
+//        produkteHB.getChildren().add(radarChart);
+
+
+//        NumberAxis xAxis = new NumberAxis();
+//        xAxis.setLabel("Year");
+//// Customize the x-axis, so points are scattred uniformly
+//        xAxis.setAutoRanging(false);
+//        xAxis.setLowerBound(1900);
+//        xAxis.setUpperBound(2300);
+//        xAxis.setTickUnit(50);
+//        NumberAxis yAxis = new NumberAxis();
+//        yAxis.setLabel("Population (in millions)");
+//        LineChart<Number, Number> chart = new LineChart<>(xAxis, yAxis);
+//        chart.setTitle("Population by Year and Country");
+//// Set the data for the chart
+//        ObservableList<XYChart.Series<Number, Number>> chartData
+//                = XYChartDataUtil.getCountrySeries();
+//        chart.setData(chartData);
+}
 
 }
