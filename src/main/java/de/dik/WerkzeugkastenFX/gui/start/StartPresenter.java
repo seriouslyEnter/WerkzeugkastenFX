@@ -31,7 +31,7 @@ public class StartPresenter implements Initializable {
         AnchorPane.setRightAnchor(startAP, 0.0);
         AnchorPane.setLeftAnchor(startAP, 0.0);
         AnchorPane.setTopAnchor(startAP, 0.0);
-//        AnchorPane.setBottomAnchor(startAP, 0.0);
+        AnchorPane.setBottomAnchor(startAP, 0.0);
     }
 
 }

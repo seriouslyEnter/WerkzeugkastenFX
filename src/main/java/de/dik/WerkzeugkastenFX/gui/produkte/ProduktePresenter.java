@@ -26,6 +26,7 @@ public class ProduktePresenter implements Initializable {
     private GridPane produkteGP;
 
     private WkButton[][] wkButtonGrid = new WkButton[6][5];
+    private FontAwesomeIconView[][] validationLight = new FontAwesomeIconView[6][2];
 
     private ResourceBundle resources = null;
 
@@ -41,13 +42,15 @@ public class ProduktePresenter implements Initializable {
         buttonInWkButtonsEinlesen();
 
         rowValidationLights();
+        
+        
     }
 
     private void rowValidationLights() {
         Integer row = 0;
-        for (int i = 1; i < 7; i++) {
-            row = i * 4;
-            
+        for (int i = 0; i < 6; i++) {
+            row = 4 + i * 4;
+
             //HBox
             HBox hboxRowVal = new HBox(10d);
             hboxRowVal.setFillHeight(true);
@@ -57,23 +60,75 @@ public class ProduktePresenter implements Initializable {
             FontAwesomeIconView invalid = new FontAwesomeIconView(FontAwesomeIcon.CLOSE, "5em");
             invalid.setStyleClass("invalid-icon");
             invalid.setDisable(false);
-            hboxRowVal.getChildren().add(invalid);
+            hboxRowVal.getChildren().add(invalid); //add to HBox
+            validationLight[i][0] = invalid; //add to Array Position Column 1
 
             //Valid
             FontAwesomeIconView valid = new FontAwesomeIconView(FontAwesomeIcon.CHECK, "5em");
             valid.setStyleClass("valid-icon");
             valid.setDisable(true);
-            hboxRowVal.getChildren().add(valid);
+            hboxRowVal.getChildren().add(valid); //add to HBox
+            validationLight[i][1] = valid; //add to Array Position Column 2
 
             //Add to Grid
             produkteGP.add(hboxRowVal, 7, row, 1, 3);
         }
     }
 
+    private void validationLights() {
+        Integer counterISTundSOLL = 0;
+        Integer istPosition = 0;
+        Integer sollPosition = 0;
+        Boolean validISTundSOLL = false;
+        Boolean validISTSOLL = false;
+        for (int row = 0; row < 6; row++) {
+            WkButton[] wkRow = wkButtonGrid[row];
+            for (WkButton wkColumn : wkRow) {
+                //nur ein IStundSOLL ...
+                if (wkColumn.getIstSoll().equals(IstSoll.ISTundSOLL)) {
+                    counterISTundSOLL++;
+                }
+                //oder ein grün vor rot
+                if (wkColumn.getIstSoll().equals(IstSoll.IST)) {
+                    istPosition = wkColumn.getColumn() + 1;
+                }
+                if (wkColumn.getIstSoll().equals(IstSoll.SOLL)) {
+                    sollPosition = wkColumn.getColumn() + 1;
+                }
+            }
 
-    
-    
-    //TODO: row validation
+            //ISTundSOLL valide?
+            if (counterISTundSOLL == 1) {
+                validISTundSOLL = true;
+            } else {
+                validISTundSOLL = false;
+            }
+            counterISTundSOLL = 0; //reset counter pro Zeile
+
+            //Ist Soll valide
+            if (istPosition > 0 && sollPosition > 0 && istPosition < sollPosition) {
+                validISTSOLL = true;
+            } else {
+                validISTSOLL = false;
+            }
+            istPosition = 0; //reset
+            sollPosition = 0; //reset
+
+            //setze die Lichter
+            if (validISTSOLL == true | validISTundSOLL == true) {
+                //Light valid
+                validationLight[row][0].setDisable(true); //invalid
+                validationLight[row][1].setDisable(false); //valid
+            } else {
+                validationLight[row][0].setDisable(false); //invalid
+                validationLight[row][1].setDisable(true); //valid
+            }
+
+            validISTundSOLL = false; //reset
+            validISTSOLL = false; //reset
+        }
+    }
+
     @FXML
     public void buttonColorChange(ActionEvent event) {
         JFXButton buttonAction = (JFXButton) event.getSource();
@@ -148,6 +203,7 @@ public class ProduktePresenter implements Initializable {
                 }
             }
         }
+        validationLights();
         System.out.println(buttonAction.getId());
     }
 

@@ -58,7 +58,7 @@ public class App extends Application {
 //        StartView appView = new StartView();
 //        MenueView appView = new MenueView();
         Scene scene = new Scene(appView.getView());
-        stage.setTitle("followme.fx");
+        stage.setTitle("WerkzeugkastenFX");
         final String uri = getClass().getResource("app.css").toExternalForm();
         scene.getStylesheets().add(uri);
         stage.setScene(scene);

@@ -51,7 +51,7 @@ and open the template in the editor.
 .valid-icon { 
     -glyph-name: "CHECK";
     -fx-fill: yellowgreen;  
-    -fx-effect: dropshadow(three-pass-box, yellowgreen , 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, yellowgreen , 20, 0, 0, 0);
     -glyph-size: 50px;
 } 
 
