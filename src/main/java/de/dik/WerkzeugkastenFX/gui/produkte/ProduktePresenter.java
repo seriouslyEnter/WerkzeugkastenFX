@@ -12,6 +12,7 @@ import eu.hansolo.tilesfx.chart.ChartData;
 import eu.hansolo.tilesfx.chart.RadarChart;
 import eu.hansolo.tilesfx.chart.RadarChart.Mode;
 import java.net.URL;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -54,7 +55,7 @@ public class ProduktePresenter implements Initializable {
         buttonInWkButtonsEinlesen();
 
         rowValidationLights();
-        
+
         chart();
 
     }
@@ -331,41 +332,75 @@ public class ProduktePresenter implements Initializable {
     }
 
     private void chart() {
-        
-                ChartData a = new ChartData("eins", 1);
+        ChartData a = new ChartData("eins", 1);
         ChartData b = new ChartData("zwei", 2);
         ChartData c = new ChartData("drei", 3);
         ChartData d = new ChartData("vier", 4);
-        
-        
-        
-    Tile radarChartTile2;
+        ChartData e = new ChartData("fünf", 0, Color.BURLYWOOD, Color.DARKVIOLET, Color.RED, Instant.MAX, true, 0) ;
 
-    radarChartTile2  = TileBuilder.create().skinType(SkinType.RADAR_CHART)
-            .prefSize(500, 500)
-            .minValue(0)
-            .maxValue(5)
-            .title("RadarChart Polygon")
-            .unit("Unit")
-            .radarChartMode(Mode.POLYGON)
-            .gradientStops(new Stop(0.00000, Color.TRANSPARENT),
-                    new Stop(0.00001, Color.web("#3552a0")),
-                    new Stop(0.09090, Color.web("#456acf")),
-                    new Stop(0.27272, Color.web("#45a1cf")),
-                    new Stop(0.36363, Color.web("#30c8c9")),
-                    new Stop(0.45454, Color.web("#30c9af")),
-                    new Stop(0.50909, Color.web("#56d483")),
-                    new Stop(0.72727, Color.web("#9adb49")),
-                    new Stop(0.81818, Color.web("#efd750")),
-                    new Stop(0.90909, Color.web("#ef9850")),
-                    new Stop(1.00000, Color.web("#ef6050")))
-            .text("Test")
-            .chartData(a,b,c,d)
-            .tooltipText("")
-            .animated(true)
-            .build();
-    
-    produkteHB.getChildren().add(radarChartTile2);
+        Tile radarChartTile2;
+
+        radarChartTile2 = TileBuilder.create().skinType(SkinType.RADAR_CHART)
+                .prefSize(500, 500)
+                .minValue(0)
+                .maxValue(5)
+                .title("RadarChart Polygon")
+                .unit("I4.0 Radar")
+                .radarChartMode(Mode.POLYGON)
+                .text("Test")
+                .chartData(a, b, c, d, e)
+                .tooltipText("")
+                .animated(true)
+                .backgroundColor(Color.rgb(255, 255, 255))
+                .gradientStops(
+                        new Stop(0.00000, Color.TRANSPARENT),
+                        new Stop(0.00001, Color.rgb(0, 160, 215)),
+                        //                    new Stop(0.2, Color.rgb(0 , 160 , 215)),
+                        new Stop(0.2, Color.rgb(0, 120, 155)),
+                        new Stop(0.4, Color.rgb(0, 110, 110)),
+                        new Stop(0.6, Color.rgb(85, 140, 90)),
+                        new Stop(0.8, Color.rgb(175, 190, 50)))
+                //                    new Stop(0.00001, Color.web("#3552a0")),
+                //                    new Stop(0.09090, Color.web("#456acf")),
+                //                    new Stop(0.27272, Color.web("#45a1cf")),
+                //                    new Stop(0.36363, Color.web("#30c8c9")),
+                //                    new Stop(0.45454, Color.web("#30c9af")),
+                //                    new Stop(0.50909, Color.web("#56d483")),
+                //                    new Stop(0.72727, Color.web("#9adb49")),
+                //                    new Stop(0.81818, Color.web("#efd750")),
+                //                    new Stop(0.90909, Color.web("#ef9850")),
+                //                    new Stop(1.00000, Color.web("#ef6050")))
+                .chartGridColor(Color.rgb(0, 60, 90))
+                .textColor(Color.rgb(0, 60, 90))
+                .titleColor(Color.rgb(0, 60, 90))
+//                .borderColor(Color.RED)
+                //            .descriptionColor(Color.RED)
+                //            .foregroundColor(Color.RED)
+                //            .activeColor(Color.CORAL)
+                //            .alarmColor(Color.CORAL)
+                //            .barBackgroundColor(Color.CORAL)
+                //            .barBorderColor(Color.CORAL)
+                //            .barColor(Color.CORAL)
+                //            .dateColor(Color.CORAL)
+                //            .descriptionColor(Color.CORAL)
+                //            .foregroundBaseColor(Color.CORAL)
+                //            .foregroundColor(Color.CORAL)
+//                            .hourColor(Color.CORAL)
+                .valueColor(Color.CORAL)
+                .unitColor(Color.CORAL)
+                .trackColor(Tile.TileColor.BLUE)
+                .thresholdColor(Color.CORAL)
+                .sunburstTextColor(Color.CORAL)
+                .secondColor(Color.CORAL)
+                .needleColor(Color.CORAL)
+                .needleBorderColor(Color.CORAL)
+                .notificationBackgroundColor(Color.CORAL)
+                .notificationForegroundColor(Color.CORAL)
+                .knobColor(Color.CORAL)
+                
+                .build();
+
+        produkteHB.getChildren().add(radarChartTile2);
 
 //        List<ChartData> chartDataList = new ArrayList();
 //
@@ -382,8 +417,6 @@ public class ProduktePresenter implements Initializable {
 //        RadarChart radarChart = new RadarChart(chartDataList);
 //
 //        produkteHB.getChildren().add(radarChart);
-
-
 //        NumberAxis xAxis = new NumberAxis();
 //        xAxis.setLabel("Year");
 //// Customize the x-axis, so points are scattred uniformly
@@ -399,6 +432,6 @@ public class ProduktePresenter implements Initializable {
 //        ObservableList<XYChart.Series<Number, Number>> chartData
 //                = XYChartDataUtil.getCountrySeries();
 //        chart.setData(chartData);
-}
+    }
 
 }

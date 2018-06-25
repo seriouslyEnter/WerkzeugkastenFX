@@ -138,7 +138,8 @@ limitations under the License.
         <dependency> 
             <groupId>eu.hansolo</groupId> 
             <artifactId>tilesfx</artifactId> 
-            <version>1.5.7</version> 
+            <version>1.6.0</version> 
+            <type>jar</type>
         </dependency>
         
         
@@ -226,7 +227,7 @@ limitations under the License.
 <!--
 
 
-    -->
+
 
     <repositories>
         <repository>
@@ -235,5 +236,5 @@ limitations under the License.
             <url>http://jcenter.bintray.com</url>
         </repository>
     </repositories>
-
+    -->
 </project>
